@@ -1,0 +1,15 @@
+{
+  "name": "moviecat-app",
+  "version": "1.0.0",
+  "description": "- 电影网站，用于分类展示电影简要信息，亦可查询查看详细信息\r - 数据来源：豆瓣电影API",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
