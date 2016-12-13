@@ -5,9 +5,10 @@
     // 主模块，所有其他的模块，都由主模块统一处理
     angular.module('moviecat', [
     	'moviecat.home', 
-    	'moviecat.in_theaters',
+        'moviecat.movie_list',
+    	/*'moviecat.in_theaters',
     	'moviecat.coming_soon',
-    	'moviecat.top250',
+    	'moviecat.top250',*/
     	'moviecat.jsonp'
     ]);
 
