@@ -1,102 +1,22 @@
 <!--电影列表开始-->
 <div class="list">
   <ul>
-    <li>
+    <li ng-repeat="item in movie.subjects">
       <a href="#/details">
-        <img src="assets/img/sc.jpg" alt="">
+        <img ng-src="{{item.images.large}}" alt="">
       </a>
       <div class="meta">
-        <h4><span>乾隆秘史</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>古装</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/sc.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>乾隆秘史</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>古装</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/sc.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>乾隆秘史</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>古装</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/sc.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>乾隆秘史</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>古装</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/sc.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>乾隆秘史</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>古装</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/aizaishenqiu.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>爱在深秋</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>爱情</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/aizaishenqiu.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>爱在深秋</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>爱情</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/aizaishenqiu.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>爱在深秋</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>爱情</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/aizaishenqiu.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>爱在深秋</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>爱情</span></div>
-      </div>
-    </li>
-    <li>
-      <a href="#/details">
-        <img src="assets/img/aizaishenqiu.jpg" alt="">
-      </a>
-      <div class="meta">
-        <h4><span>爱在深秋</span> <em>9.9分</em></h4>
-        <div class="otherinfo">类型:<span>爱情</span></div>
+        <h4><span>{{item.title}}</span> <em>{{item.rating.average}}</em></h4>
+        <div class="otherinfo">类型:<span ng-repeat="gen in item.genres">{{gen}}</span></div>
       </div>
     </li>
   </ul>
   <div class="paging">
-    <label>总共：0条记录,第0/0页;</label>
+    <label>总共：{{movie.total}}条记录,第{{curPage}}/{{totalPages}}页;</label>
     <!-- 加上disable类样式，表示按钮禁用状态 -->
-    <button class="prev disable ">上一页</button>
-    <button class="next">下一页</button>
+    <!-- curPage-0 的目的是为了：将字符串类型转化为数值类型在进行比较 -->
+    <button class="prev" ng-class="{'disable': (curPage-0) <= 1}" ng-click="goPages( curPage-1)">上一页</button>
+    <button class="next" ng-class="{'disable': (curPage-0) >= totalPages}" ng-click="goPages( (curPage-0)+1)">下一页</button>
   </div>
 </div>
 <!--电影列表结束-->
