@@ -9,7 +9,7 @@ var htmlmin = require('gulp-htmlmin')
 // 文件合并
 var concat = require('gulp-concat')
 // 路径替换
-var useref = require('gulp-useref')
+// var useref = require('gulp-useref')
 // 同步浏览器
 var browserSync = require('browser-sync').create()
 
@@ -28,7 +28,7 @@ gulp.task('js', function() {
 // gulp任务：css压缩
 gulp.task('css', function() {
 	gulp.src('./app/**/*.css')
-		.pipe(concat('all.css'))
+		.pipe(concat('all.min.css'))
 		.pipe(cssnano())
 		.pipe(gulp.dest('./dist/assets/css/'))
 		.pipe(browserSync.reload({stream: true}))
@@ -38,18 +38,9 @@ gulp.task('css', function() {
 // gulp任务：html压缩（首页除外）
 gulp.task('html', function() {
 	
-	gulp.src(['./app/**/*.html', '!./app/index.html'])
+	gulp.src(['./app/**/*.html'])
 		.pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
 		.pipe(gulp.dest('./dist/'))
-		.pipe(browserSync.reload({stream: true}))
-});
-
-// gulp任务：处理index.html
-gulp.task('index', function() {
-	gulp.src('./app/index.html')
-		.pipe(useref())
-		// .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-		.pipe(gulp.dest('./dist'))
 		.pipe(browserSync.reload({stream: true}))
 });
 
@@ -70,7 +61,6 @@ gulp.task('browser-sync', function() {
 // gulp任务：监视文件变化
 gulp.task('watch', ['browser-sync'], function() {
 	
-	gulp.watch('./app/index.html', ['index'])
 	gulp.watch('./app/assets/img/*.*', ['img'])
 	gulp.watch('./app/**/*.html', ['html'])
 	gulp.watch('./app/**/*.css', ['css'])
@@ -78,4 +68,4 @@ gulp.task('watch', ['browser-sync'], function() {
 });
 
 // 默认任务
-gulp.task('default', ['css', 'js', 'html', 'index', 'img', 'watch']);
+gulp.task('default', ['css', 'js', 'html', 'img', 'watch']);
