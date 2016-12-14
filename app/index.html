@@ -4,8 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>电影展示</title>
+
+  <!-- build:css assets/css/all.css -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/wap.css">
+  <!-- endbuild -->
+
 </head>
 
 <body ng-app="moviecat">
@@ -64,19 +68,24 @@
     <div class="container">
       <p>版权所有&copy; 前端与移动开发学院 前端(允许侵权)</p>
     </div>
-  </footer>
+  </footer> 
   <!-- 自动补全C3样式的前缀 -->
   <script src="assets/js/prefixfree.min.js"></script>
+
+  <!-- build:js assets/js/angular.min.js -->
   <script src="../node_modules/angular/angular.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js assets/js/angular-route.min.js -->
   <script src="../node_modules/angular-route/angular-route.js"></script>
+  <!-- endbuild -->
+
   <script src="app.js"></script>
   <!-- 引入 home 模块的js文件 -->
+
   <script src="home/module.js"></script>
-  <!-- <script src="in_theaters/module.js"></script>
-  <script src="coming_soon/module.js"></script>
-  <script src="top250/module.js"></script> -->
   <script src="movie_list/module.js"></script>
-  <script src="./common/itcastJSONP.js"></script>
+  <script src="common/itcastJSONP.js"></script>
 </body>
 
 </html>
