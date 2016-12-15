@@ -11,7 +11,7 @@
       </div>
     </li>
   </ul> 
-  <div class="paging">
+  <div class="paging" ng-hide="isLoaded">
     <label>总共：{{movie.total}}条记录,第{{curPage}}/{{totalPages}}页;</label>
     <!-- 加上disable类样式，表示按钮禁用状态 -->
     <!-- curPage-0 的目的是为了：将字符串类型转化为数值类型在进行比较 -->
@@ -20,3 +20,18 @@
   </div>
 </div>
 <!--电影列表结束-->
+
+
+<!-- 动画模块 开始 -->
+<!-- 遮罩层 -->
+<div class="loading-mask" ng-show="isLoaded"></div>
+
+<div class="spinner" ng-show="isLoaded">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+
+<!-- 动画模块 结束 -->

@@ -6,7 +6,8 @@ fieldset,input,textarea,p,blockquote,th,td {
 	padding:0; 
     font-family:"Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft YaHei";
     outline:none;
-} 
+}
+
 table { 
 	border-collapse:collapse; 
 	border-spacing:0; 

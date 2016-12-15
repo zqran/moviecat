@@ -14,6 +14,9 @@
 		}])
 		.controller('MovieListController', ['$scope', '$http', '$routeParams', '$route', 'itcastJSONP', 
 			function($scope, $http, $routeParams, $route, itcastJSONP){
+				// 加载动画，默认展示
+				$scope.isLoaded = true;
+
 				// 如果这个值没有传入，那么默认值为：undefined
 				// console.log( $routeParams.page );
 				// 实现分页功能
@@ -34,7 +37,8 @@
 						$scope.movie = data;
 						// 计算总页数
 						$scope.totalPages = Math.ceil( data.total / $scope.pageSize );
-
+						
+						$scope.isLoaded = false;
 						$scope.$apply();
 					});
 
