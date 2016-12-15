@@ -16,6 +16,7 @@
 			function($scope, $http, $routeParams, $route, itcastJSONP){
 				// 加载动画，默认展示
 				$scope.isLoaded = true;
+				// console.log($routeParams.movieType)
 
 				// 如果这个值没有传入，那么默认值为：undefined
 				// console.log( $routeParams.page );
