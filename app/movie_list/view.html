@@ -2,7 +2,7 @@
 <div class="list">
   <ul>
     <li ng-repeat="item in movie.subjects">
-      <a href="#/details">
+      <a href="#/details/{{item.id}}">
         <img ng-src="{{item.images.large}}" alt="">
       </a>
       <div class="meta">

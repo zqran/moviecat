@@ -6,6 +6,10 @@
 			
 			// :page 表示当前处于多少页，这个参数是可以省略的，如果省略了
 			// 默认展示第一页
+			// '/search?q={text}'
+			// '/coming_soon'
+			// '/top250'
+			// '/subject/'
 			$routeProvider.when('/:movieType/:page?', {
 				templateUrl: './movie_list/view.html',
 				controller: 'MovieListController'
@@ -32,8 +36,12 @@
 				// 总条数 / 每页大小
 				
 				// 通过JSONP获取豆瓣的数据
-				itcastJSONP.jsonp('https://api.douban.com/v2/movie/' + $routeParams.movieType, 
-					{start: movieStart, count: $scope.pageSize}, function(data) {
+				itcastJSONP.jsonp('https://api.douban.com/v2/movie/' + $routeParams.movieType, {
+					start: movieStart, 
+					count: $scope.pageSize,
+					// webapi 的服务端只会获取它想要的参数，对于其他额外的参数，是不是影响到现有功能的！
+					q: $routeParams.q || ''	// 获取路由的参数，用于搜索功能
+				}, function(data) {
 						console.log(data);
 						$scope.movie = data;
 						// 计算总页数
